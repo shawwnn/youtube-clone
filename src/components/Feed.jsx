@@ -20,7 +20,7 @@ const Feed = () => {
           borderRight: '1px solid #3D3D3D', px: { sx: 0, md: 2} 
         }}
       >
-        <Sidebar />
+        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory}/>
         <Typography 
           className="copyright" 
           variant="body2"
@@ -34,7 +34,7 @@ const Feed = () => {
 
       <Box p={2} sx={{ overFlowY: 'auto', height: '90vh', flex: 2}}>
         <Typography variant="h4" fontWeight="bold" mb={2} sx={{ color: 'white' }}>
-          New <span style={{ color: '#F31503' }}>videos</span>
+          {selectedCategory} <span style={{ color: '#F31503' }}>videos</span>
         </Typography>
         <Videos />
       </Box>
