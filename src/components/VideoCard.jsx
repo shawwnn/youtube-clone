@@ -6,9 +6,17 @@ import { demoThumbnailUrl, demoVideoUrl, demoVideoTitle, demoChannelTitle, demoC
 
 const VideoCard = ({ video: {id: {videoId}, snippet } }) => {
   console.log(videoId, snippet);
-  
+
   return (
-    <div>VideoCard</div>
+    <Card>
+      <Link to={videoId ? `/video/${videoId}` : demoVideoUrl}>
+        <CardMedia 
+          image={snippet?.thumbnails?.high?.url} 
+          alt={snippet?.title}
+          sx={{ width: 358, height: 180}}
+        />
+      </Link>
+    </Card>
   )
 }
 
