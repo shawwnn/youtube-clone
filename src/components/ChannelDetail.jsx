@@ -10,8 +10,6 @@ const ChannelDetail = () => {
   const [channelDetail, setChannelDetail] = useState(null);
   const [videos, setVideos] = useState([]);
 
-  console.log(videos);
-
   useEffect(() => {
     fetchFromAPI(`channels?part=snippet&id=${id}`)
       .then(data => setChannelDetail(data?.items[0]));
@@ -19,6 +17,23 @@ const ChannelDetail = () => {
     fetchFromAPI(`search?channelId=${id}&part=snippet&order=date`)
       .then(data => setVideos(data?.items));
   }, [id]);
+
+  return (
+    <Box minHeight="95vh">
+      <Box>
+        <div 
+          style={{
+            backgroundColor: '#00DBDE',
+            backgroundImage: 'linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%)',
+            zIndex: 10,
+            height: '300px'
+          }}
+        />
+        <ChannelCard channelDetail={channelDetail} />
+
+      </Box>
+    </Box>
+  )
 }
 
 export default ChannelDetail
